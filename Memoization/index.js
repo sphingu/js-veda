@@ -3,6 +3,7 @@
 class MyClass {
   constructor(data) {
     this.data = data;
+    // set non-empty value for second last item in array of object
     this.data[this.data.length - 2] = { value: 'Non-empty' };
   }
 
@@ -20,10 +21,14 @@ class MyClass {
 
 const obj = new MyClass(Array(5000).fill({ value: null }));
 
+console.time('non-memoized');
 for (let i = 0; i < 100; i++) {
-  obj.getFirstNonEmptyItem();   // ~ 9ms 
+  obj.getFirstNonEmptyItem();   // ~ 5.32ms 
 }
+console.timeEnd('non-memoized');
 
+console.time('memoized');
 for (let i = 0; i < 100; i++) {
-  obj.getFirstNonEmptyItemMemo();   // ~ 0.3ms
+  obj.getFirstNonEmptyItemMemo();   // ~ 0.18ms
 }
+console.timeEnd('memoized');

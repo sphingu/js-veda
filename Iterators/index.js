@@ -11,34 +11,34 @@ class LinkedList {
   }
 
   firstItem() {
-    return this.data.find(i => i.head);
+    return this.data.find((i) => i.head);
   }
 
   findById(id) {
-    return this.data.find(i => i.id === id);
+    return this.data.find((i) => i.id === id);
   }
 
   [Symbol.iterator]() {
-    let currentItem = { next: this.firstItem().id };
+    let currentItem = { linkedItem: this.firstItem().id };
     return {
       next: () => {
-        currentItem = this.findById(currentItem.next);
+        currentItem = this.findById(currentItem.linkedItem);
         if (currentItem) {
           return { value: currentItem.value, done: false };
         }
         return { value: undefined, done: true };
-      }
-    }
+      },
+    };
   }
 }
 
 const myList = new LinkedList([
-  { id: 'A1', value: 'First', next: 'A3', head: true },
-  { id: 'A2', value: 'Third', next: 'A0', head: false },
-  { id: 'A0', value: 'Last', next: null, head: false },
-  { id: 'A3', value: 'Second', next: 'A2', head: false }
-])
+  { id: 'A1', value: 'First', linkedItem: 'A3', head: true },
+  { id: 'A2', value: 'Third', linkedItem: 'A0', head: false },
+  { id: 'A0', value: 'Last', linkedItem: null, head: false },
+  { id: 'A3', value: 'Second', linkedItem: 'A2', head: false },
+]);
 
 for (let item of myList) {
-  console.log(item);  // First, Second, Third, Last
+  console.log(item); // First, Second, Third, Last
 }

@@ -1,0 +1,21 @@
+{
+  "name": "js-veda",
+  "version": "1.0.0",
+  "description": "JS Veda is about understanding javascript through examples",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node ./Memoization/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sphingu/js-veda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sphingu/js-veda/issues"
+  },
+  "homepage": "https://github.com/sphingu/js-veda#readme"
+}
